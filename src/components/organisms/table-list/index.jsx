@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Table from '../../molecules/table/Table';
 import FilterSearch from '../../molecules/table/FilterSearch';
-import { useDeleteProductMutation, useGetProductsQuery } from '../../molecules/api/productApi';
+import { useDeleteProductMutation, useGetProductsQuery } from '../../../api/productApi';
 
 function TableList() {
   const { data: products } = useGetProductsQuery();

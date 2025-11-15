@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useCreateProductMutation } from '../../../molecules/api/productApi';
+import { useCreateProductMutation } from '../../../../api/productApi';
 import Input from '../../../atoms/input/Input';
 import Button from '../../../atoms/Button/Button';
 

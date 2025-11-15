@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Input from '../../../atoms/input/Input';
-import { useUpdateProductMutation } from '../../../molecules/api/productApi';
+import { useUpdateProductMutation } from '../../../../api/productApi';
 import Button from '../../../atoms/Button/Button';
 
 function DetailsItem() {

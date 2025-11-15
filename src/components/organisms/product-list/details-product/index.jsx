@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { addToCart } from '../../../../redux/slices/cartSlice';
-import { useGetProductIdQuery } from '../../../molecules/api/productApi';
+import { useGetProductIdQuery } from '../../../../api/productApi';
 import imgCart from '../../../../assets/images/img-cart.jpg';
 import Button from '../../../atoms/Button/Button';
 

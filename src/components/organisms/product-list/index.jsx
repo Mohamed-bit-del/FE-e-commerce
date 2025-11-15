@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { addToCart } from '../../../redux/slices/cartSlice';
 import Card from '../../molecules/product-card';
-import { useGetProductsQuery } from '../../molecules/api/productApi';
+import { useGetProductsQuery } from '../../../api/productApi';
 import ProductSkeleton from '../../molecules/skeletons/ProductSkeleton';
 
 function ProductList() {
