@@ -15,12 +15,11 @@ function DetailsItem() {
     const { name, value } = e.target;
     setStorageData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: name == 'quantity' ? Number(value) : value,
     }));
   };
 
   const handelEditProduct = async (id) => {
-    console.log('>>storageData', storageData);
     try {
       await updateProduct({ id, data: storageData });
       console.log(id, 'Updated Successfully');
@@ -50,9 +49,9 @@ function DetailsItem() {
           />
           <Input
             type="text"
-            name="color"
+            name="quantity"
             className="w-full"
-            placeholder="Color"
+            placeholder="quantity"
             onChange={(e) => handeStorageData(e)}
           />
           <Input

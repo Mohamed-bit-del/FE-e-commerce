@@ -28,7 +28,7 @@ function TableList() {
               Product name
             </th>
             <th scope="col" className="px-6 py-3">
-              Color
+              quantity
             </th>
             <th scope="col" className="px-6 py-3">
               Category
@@ -53,7 +53,7 @@ function TableList() {
                 >
                   {item.product_name}
                 </th>
-                <td className="px-6 py-4 text-center text-gray-900">{item.color}</td>
+                <td className="px-6 py-4 text-center text-gray-900">{item.quantity}</td>
                 <td className="px-6 py-4 text-center text-gray-900">{item.category}</td>
                 <td className="px-6 py-4 text-center text-gray-900">{item.price} $</td>
                 <td className="px-6 py-4 text-center flex justify-center items-center gap-5">

@@ -25,7 +25,7 @@ const productApi = apiSlice.injectEndpoints({
     }),
 
     updateProduct: builder.mutation({
-      query: ({id, data}) => ({
+      query: ({ id, data }) => ({
         url: `store/products/${id}`,
         method: 'PATCH',
         body: data,

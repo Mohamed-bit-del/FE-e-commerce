@@ -34,6 +34,7 @@ function ProductList() {
               <Card.Img />
               <Card.Title />
               <Card.Content />
+              <Card.Quantity />
               <Card.Actions onAddToCart={(e) => handelAddToCart(e, product)} />
             </Card>
           ))}

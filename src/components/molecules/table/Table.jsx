@@ -13,8 +13,6 @@ function Table({ children, data }) {
 export default Table;
 
 Table.header = function TableHeader({ children }) {
-  // const data = useContext(TableContext);
-
   return (
     <thead className="text-xs text-white uppercase bg-gray-400">
       <tr>{children}</tr>
@@ -23,14 +21,10 @@ Table.header = function TableHeader({ children }) {
 };
 
 Table.body = function TableBody({ children }) {
-  // const data = useContext(TableContext);
-
   return <tbody>{children}</tbody>;
 };
 
 Table.footer = function TableFooter({ children }) {
-  // const data = useContext(TableContext);
-
   return (
     <tfoot>
       <tr>{children}</tr>

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Provider } from 'react-redux';
+import { CookiesProvider } from 'react-cookie';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <CookiesProvider defaultSetOptions={{ path: '/' }}>
+        <App />
+      </CookiesProvider>
     </Provider>
   </React.StrictMode>
 );

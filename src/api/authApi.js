@@ -5,17 +5,13 @@ const authApi = apiSlice.injectEndpoints({
 
   endpoints: (builder) => ({
     login: builder.mutation({
-      query: (credentials) =>({
+      query: (credentials) => ({
         url: 'session/login',
         method: 'POST',
         body: credentials,
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
       }),
       invalidatesTags: ['Auth'],
-    })
+    }),
   }),
 });
 

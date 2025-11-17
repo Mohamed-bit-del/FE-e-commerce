@@ -52,15 +52,16 @@ Card.Content = function CartContent() {
   return <p className="font-Roboto">{product?.category}</p>;
 };
 
+Card.Quantity = function CartContent() {
+  const product = useContext(CardContext);
+
+  return <p className="font-Roboto">{product?.quantity}</p>;
+};
+
 Card.Actions = function CartActions({ onAddToCart }) {
   return (
     <div className="text-center">
-      <Button
-        size='md'
-        variant='secondary'
-        className="font-Roboto w-full"
-        onClick={onAddToCart}
-      >
+      <Button size="md" variant="secondary" className="font-Roboto w-full" onClick={onAddToCart}>
         Add To Cart
       </Button>
     </div>
