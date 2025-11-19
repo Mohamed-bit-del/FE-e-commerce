@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 import imgCart from '../../../assets/images/img-cart.jpg';
 import Button from '../../atoms/Button/Button';
@@ -14,11 +13,9 @@ function Card({ children, product }) {
 
   return (
     <CardContext.Provider value={contextValue}>
-      <Link to={`/store/product/${product?._id}`}>
-        <div className="p-2 border border-gray-300 rounded-xl flex flex-col gap-4 justify-between min-h-[300px] h-full">
-          {children}
-        </div>
-      </Link>
+      <div className="p-2 border border-gray-300 rounded-xl flex flex-col gap-4 justify-between min-h-[300px] h-full">
+        {children}
+      </div>
     </CardContext.Provider>
   );
 }

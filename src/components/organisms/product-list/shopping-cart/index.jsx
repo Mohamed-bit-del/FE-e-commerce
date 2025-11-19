@@ -1,33 +1,37 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import { useSelector } from 'react-redux';
-import { Minus, Plus, X } from 'lucide-react';
-import { useDispatch } from 'react-redux';
 
-import { removeItem } from '../../../../redux/slices/cartSlice';
+import { useGetProductsQuery } from '../../../../api/productApi';
+import Cart from './Cart';
 
 function ShoppingCart() {
-  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const { data: products } = useGetProductsQuery();
 
-  const handelRemoveItem = (item) => {
-    dispatch(removeItem(item));
-  };
+  const mergaedProducts = useMemo(() => {
+    if(!products) return [];
+
+    return cart?.cartItem?.map((item) => {
+      const product = products.find((product) => product._id === item.productID);
+
+      return {
+        ...product,
+        ...item,
+      };
+    });
+  }, [cart, products]);
 
   return (
     <div className="container m-auto">
-      <div className="flex flex-col gap-5">
-        {cart?.cartItem.map((item, idx) => (
-          <div className="flex items-center gap-5" key={item?.id || idx}>
-            <X color="#F00" className="cursor-pointer" onClick={() => handelRemoveItem(item)} />
-            <div className="flex flex-col">
-              <p>{item?.title}</p>
-              <p>{item?.body}</p>
-            </div>
-            <Minus className="cursor-pointer" />
-            <p>{item?.quantity}</p>
-            <Plus className="cursor-pointer" />
-          </div>
-        ))}
+      <div className="flex justify-between gap-20 my-16">
+        <div className="w-1/2">
+          <h2 className='pb-5'>Total Price</h2>
+          <p>{cart?.cartItem?.reduce((total, item) => total + item.price * item.quantity, 0)}$</p>
+        </div>
+
+        <div className="flex flex-col gap-5 w-1/2">
+          <Cart cart={mergaedProducts} />
+        </div>
       </div>
     </div>
   );

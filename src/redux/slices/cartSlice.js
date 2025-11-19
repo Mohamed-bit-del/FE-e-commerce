@@ -13,18 +13,19 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const item = action.payload;
-      const existingItem = state.cartItem.find((cartItem) => cartItem._id === item._id);
+
+      const existingItem = state.cartItem.find((cartItem) => cartItem.productID === item._id);
 
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        state.cartItem.push({ productID: item._id, quantity: item.quantity, price: item.price });
+        state.cartItem.push({ productID: item._id, price: item.price, quantity: 1 });
       }
       state.totalQuantity = state.cartItem.reduce((total, item) => total + item.quantity, 0);
     },
 
     removeItem: (state, action) => {
-      state.cartItem = state.cartItem.filter((item) => item._id !== action.payload._id);
+      state.cartItem = state.cartItem.filter((item) => item.productID !== action.payload.productID);
       state.totalQuantity = state.cartItem.reduce((total, item) => total + item.quantity, 0);
     },
   },

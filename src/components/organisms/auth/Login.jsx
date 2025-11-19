@@ -12,7 +12,7 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loginUser] = useLoginMutation();
-  const [setCookie] = useCookies(['token']);
+  const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
   const [user, setUser] = useState({
     email: '',
@@ -34,6 +34,7 @@ function Login() {
       dispatch(setCreateUser({ token, user: userData }));
       setCookie('token', token, { path: '/' });
       role === 'admin' ? navigate('/admin') : navigate('/store');
+      console.log('>>result', role);
     } catch (err) {
       console.log(err);
     }
