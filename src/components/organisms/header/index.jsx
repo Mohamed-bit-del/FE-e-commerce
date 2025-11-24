@@ -21,7 +21,7 @@ function Header() {
 
   return (
     <div className="container m-auto">
-      <div className="flex justify-between py-7 gap-5">
+      <div className="flex justify-between py-7 px-2 gap-5 overflow-x-hidden">
         <h1>Logo</h1>
 
         <nav>

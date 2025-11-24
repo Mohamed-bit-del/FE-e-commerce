@@ -24,19 +24,20 @@ function ProductList() {
       ) : (
         <div className="grid grid-cols-4 gap-5">
           {products?.map((product, idx) => (
-            <Card key={product?._id || idx} product={product}>
-              <Link to={`/store/product/${product?._id}`}>
+            <Card key={product?.product_id || idx} product={product}>
+              <Link to={`/store/product/${product?.product_id}`}>
                 <Card.Img />
                 <Card.Title />
                 <Card.Content />
                 <Card.Quantity />
               </Link>
 
-              <Card.Actions onAddToCart={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                dispatch(addToCart(product));}
-              } 
+              <Card.Actions
+                onAddToCart={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  dispatch(addToCart(product));
+                }}
               />
             </Card>
           ))}

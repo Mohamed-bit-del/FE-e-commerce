@@ -12,7 +12,7 @@ function Button({
   className = '',
 }) {
   const baseStyles =
-    'rounded-xl font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
+    'rounded-xl font-Roboto font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
 
   const variants = {
     primary: 'bg-primary text-white hover:bg-primary/90 focus:ring-primary',

@@ -58,14 +58,14 @@ function TableList() {
                 <td className="px-6 py-4 text-center text-gray-900">{item.price} $</td>
                 <td className="px-6 py-4 text-center flex justify-center items-center gap-5">
                   <Link
-                    to={`/admin/product/${item._id}`}
+                    to={`/admin/product/${item.product_id}`}
                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
                     Edit
                   </Link>
                   <button
                     type="button"
-                    onClick={() => handleRemoveProduct(item._id)}
+                    onClick={() => handleRemoveProduct(item.product_id)}
                     className="font-medium text-red-600 dark:text-red-500 hover:underline cursor-pointer"
                   >
                     {isLoading ? 'Removed...' : 'Remove'}

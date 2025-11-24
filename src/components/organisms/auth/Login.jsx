@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useCookies } from 'react-cookie';
+import { useSelector } from 'react-redux';
 
 import { setCreateUser } from '../../../redux/slices/authSlice';
 import Input from '../../atoms/input/Input';
@@ -11,6 +12,8 @@ import { useLoginMutation } from '../../../api/authApi';
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userData = useSelector((state) => state.user);
+  console.log('>>userData', userData);
   const [loginUser] = useLoginMutation();
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
@@ -33,8 +36,8 @@ function Login() {
       const { token, role, ...userData } = result.data;
       dispatch(setCreateUser({ token, user: userData }));
       setCookie('token', token, { path: '/' });
-      role === 'admin' ? navigate('/admin') : navigate('/store');
-      console.log('>>result', role);
+      // role === 'admin' ? navigate('/admin') : navigate('/store');
+      console.log('>>result', result);
     } catch (err) {
       console.log(err);
     }
